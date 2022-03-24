@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Toolbar, Avatar, AppBar, Button, Typography, Box } from "@material-ui/core";
+import { Toolbar, Avatar, AppBar, Button, Typography, Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import useStyles from "./styles";
@@ -8,6 +8,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { LOGOUT } from "../../constants/actionTypes";
 
 const Navbar = () => {
+  //const classes = useStyles();
   const classes = useStyles();
   const dispatch = useDispatch();
   const navigate = useNavigate();

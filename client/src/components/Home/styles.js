@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme) => ({
   appBar: {
@@ -34,6 +34,17 @@ export default makeStyles((theme) => ({
   gridContainer: {
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column-reverse",
+    },
+  },
+  fabButton: {
+    height: "100%",
+  },
+  boxForFab: {
+    position: "fixed",
+    right: 250,
+    bottom: 100,
+    [theme.breakpoints.down("xl")]: {
+      right: 50,
     },
   },
 }));

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 import Pagination from "../Pagination";
-import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from "@material-ui/core";
+import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ChipInput from "material-ui-chip-input";
 import { getPosts, getPostsBySearch } from "../../actions/posts";
 import useStyles from "./styles";
+import FloatAddPin from "../FloatAddPin/FloatAddPin";
+import { Box } from "@mui/system";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -93,6 +95,9 @@ const Home = () => {
             )}
           </Grid>
         </Grid>
+        <Box className={classes.boxForFab}>
+          <FloatAddPin className={classes.fabButton} />
+        </Box>
       </Container>
     </Grow>
   );

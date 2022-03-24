@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Paper, Typography, CircularProgress, Divider } from "@material-ui/core";
+import { Paper, Typography, CircularProgress, Divider } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { useParams, useNavigate } from "react-router-dom";
@@ -41,7 +41,7 @@ const PostDetails = () => {
 
   //该处posts是object
   console.log("posts:", posts);
-  const recommendedPosts = posts.filter((p) => p._id !== post._id); 
+  const recommendedPosts = posts.filter((p) => p._id !== post._id);
   // const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
   console.log("recommendedPosts:", recommendedPosts);
 
@@ -73,7 +73,7 @@ const PostDetails = () => {
           <Divider style={{ margin: "20px 0" }} />
         </div>
         <div className={classes.imageSection}>
-          <img className={classes.media} src={post.selectedFile || "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"} alt={post.title} />
+          <img className={classes.media} src={post.selectedFile || "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"} alt={post.title} height='300px' width='400px' />
         </div>
       </div>
       {/* recommended posts */}
@@ -86,12 +86,20 @@ const PostDetails = () => {
           <div className={classes.recommendedPosts}>
             {recommendedPosts.map(({ title, message, name, likes, selectedFile, _id }) => {
               return (
-                <div style={{margin: '20px',cursor:'pointer'}} onClick={()=>openPost(_id)} key={_id}>
-                  <Typography gutterBottom variant='h6'>{title}</Typography>
-                  <Typography gutterBottom variant='subtitle2'>{name}</Typography>
-                  <Typography gutterBottom variant='subtitle2'>{message}</Typography>
-                  <Typography gutterBottom variant='subtitle1'>Likes: {likes.length}</Typography>
-                  <img src={selectedFile||"https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"} alt="pic" width="200px" />
+                <div style={{ margin: "20px", cursor: "pointer" }} onClick={() => openPost(_id)} key={_id}>
+                  <Typography gutterBottom variant='h6'>
+                    {title}
+                  </Typography>
+                  <Typography gutterBottom variant='subtitle2'>
+                    {name}
+                  </Typography>
+                  <Typography gutterBottom variant='subtitle2'>
+                    {message}
+                  </Typography>
+                  <Typography gutterBottom variant='subtitle1'>
+                    Likes: {likes.length}
+                  </Typography>
+                  <img src={selectedFile || "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"} alt='pic' width='200px' />
                 </div>
               );
             })}
